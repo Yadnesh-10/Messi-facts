@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lionel Messi Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .fact-display {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lionel Messi Facts</h1>
+        <div id="factDisplay" class="fact-display"></div>
+        <button id="nextFactButton">Show Next Fact</button>
+    </div>
+    <script>
+        const facts = [
+            "Full Name: Lionel Andrés Messi",
+            "Date of Birth: June 24, 1987",
+            "Place of Birth: Rosario, Argentina",
+            "Height: 1.70 m (5 ft 7 in)",
+            "Position: Forward",
+            "Current Club: Inter Miami CF",
+            "Previous Club: FC Barcelona",
+            "International Team: Argentina",
+            "Ballon d'Or Wins: 7 times (as of 2023)",
+            "Major Trophies: Includes UEFA Champions League, La Liga, Copa America, FIFA World Cup"
+        ];
+
+        let currentFactIndex = 0;
+
+        const factDisplay = document.getElementById('factDisplay');
+        const nextFactButton = document.getElementById('nextFactButton');
+
+        nextFactButton.addEventListener('click', () => {
+            if (currentFactIndex < facts.length) {
+                factDisplay.textContent = facts[currentFactIndex];
+                currentFactIndex++;
+            } else {
+                factDisplay.textContent = "No more facts available.";
+                nextFactButton.disabled = true; // Disable button after all facts are shown
+            }
+        });
+    </script>
+</body>
+</html>
